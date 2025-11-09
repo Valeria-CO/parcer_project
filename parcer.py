@@ -49,7 +49,7 @@ def scrape_data(city:str):
             title = card.find_element(By.CSS_SELECTOR, "div[data-testid=title]")
             url = card.find_element(By.CSS_SELECTOR, "a[data-testid=title-link]").get_attribute('href')
             price = card.find_element(By.CSS_SELECTOR, "span[data-testid=price-and-discounted-price]")
-            hotels.append({'title.text': title.text, 'url': url, 'price': price.text})
+            hotels.append({'title': title.text, 'url': url, 'price': price.text})
         except Exception as e:
             print("error processing card", e)
 

@@ -1,11 +1,11 @@
-from parcer import scrape_data
+import sys
+from PySide6.QtWidgets import QApplication
+from gui import Window
 
-
-city = 'Кишинёв'
 
 
 if __name__ == "__main__":
-    hotels = scrape_data(city)
-
-    for hotel in hotels:
-        print(hotel)
+    app = QApplication(sys.argv)
+    window = Window()
+    window.show()
+    sys.exit(app.exec())
