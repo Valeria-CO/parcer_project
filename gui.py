@@ -1,5 +1,3 @@
-import sys
-
 from PySide6.QtWidgets import (QWidget, QApplication, QMainWindow, QLabel, QPushButton, QVBoxLayout,
                                QHBoxLayout, QLineEdit, QTextEdit)
 from PySide6.QtGui import QIcon, QPixmap
@@ -12,16 +10,12 @@ class Window(QMainWindow):
         super().__init__()
         self.setGeometry(300, 300, 800, 600)
         self.setWindowTitle("Parcer hotel")
-        self.setWindowIcon(QIcon("icon.png"))
+        self.setWindowIcon(QIcon("icon/icon.png"))
         self.setStyleSheet("background-color: rgb(255, 255, 255);")
 
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
 
-        # label = QLabel(self)
-        # pixmap = QPixmap("icon.png")
-        # label.setPixmap(pixmap)
-        # label.adjustSize()
         main_layout = QVBoxLayout(central_widget)
 
         input_layout = QHBoxLayout()
@@ -39,15 +33,6 @@ class Window(QMainWindow):
 
         self.result_box = QTextEdit()
         self.result_box.setReadOnly(True)
-        # self.result_box.setStyleSheet("""
-        #             QWidget {
-        #             background-image: url("icon.png");
-        #             background-repeat: no-repeat;
-        #             background-position: center;
-        #             background-size: cover;
-        #             background-blend-mode: lighten;
-        #             }
-        #         """)
 
         main_layout.addLayout(input_layout)
         main_layout.addWidget(self.result_box)
@@ -69,7 +54,7 @@ class Window(QMainWindow):
                     self.result_box.append('No hotel found')
         except Exception as e:
             self.result_box.append(f"error parcing: {e}")
-        # self.result_box.append('The best hotel ever =)')
+        # self.result_box.append('The best hotel ever')
 
 
 
